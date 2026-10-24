@@ -17,7 +17,9 @@ class BookController extends Controller
         $books = Book::when($request->search, function ($query, $search) {
             $query->where(function ($q) use ($search) {
                 $q->where('judul', 'like', "%{$search}%")
-                ->orWhere('pengarang', 'like', "%{$search}%");
+                ->orWhere('pengarang', 'like', "%{$search}%")
+                ->orWhere('penerbit', 'like', "%{$search}%")
+                ->orWhere('kode_buku', 'like', "%{$search}%");
             });
         })
         ->latest()

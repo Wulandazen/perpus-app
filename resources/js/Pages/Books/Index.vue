@@ -46,6 +46,10 @@ function hapus(id) {
                 {{ flash.success }}
             </div>
 
+            <div v-if="$page.props.flash?.error">
+                {{ $page.props.flash.error }}
+            </div>
+
             <!-- Tombol tambah buku -->
             <div class="mb-4">
                 <Link
